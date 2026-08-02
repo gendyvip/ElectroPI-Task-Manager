@@ -1,0 +1,688 @@
+{
+  "info": {
+    "_postman_id": "a0860744-b009-45de-964f-2349cb6c662a",
+    "name": "ElectroPI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44915142",
+    "_collection_link": "https://go.postman.co/collection/44915142-a0860744-b009-45de-964f-2349cb6c662a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Testttt User\",\n  \"email\": \"test@test.com\",\n  \"password\": \"Test123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@taskmanager.local\",\n  \"password\": \"Member@12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlYTEwZDc0OWEzM2RkZTA4ZTdhNWYiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJyb2xlIjoiTUVNQkVSIiwiaWF0IjoxNzg1NjM1MTA5LCJleHAiOjE3ODU3MjE1MDl9.2QqgJWi5r11T2HLFN0dVv6SSl33Pku5cOgWsTNgxkMQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "search",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/search?q=alice",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "alice"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Project22222\",\n  \"description\": \"testttttt\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Project After Update\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add member",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"6a6e64c4149beb67988915e4\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/members",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "members"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "remove member",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/members/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "members",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tasks",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"tesst task2\",\n  \"description\": \"\",\n  \"status\": \"TODO\",\n  \"priority\": \"MEDIUM\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "list by status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/tasks?status=TODO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "TODO"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get by id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"DONE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTZlNjRjNDE0OWJlYjY3OTg4OTE1ZTEiLCJlbWFpbCI6ImFkbWluQHRhc2ttYW5hZ2VyLmxvY2FsIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NjM1MjM4LCJleHAiOjE3ODU3MjE2Mzh9.aCXwfQFltgq-4-EGN5YjGf48chtc_VSgr2g_ymcJ0SQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "projectId",
+      "value": ""
+    },
+    {
+      "key": "taskId",
+      "value": ""
+    },
+    {
+      "key": "userId",
+      "value": ""
+    }
+  ]
+}
