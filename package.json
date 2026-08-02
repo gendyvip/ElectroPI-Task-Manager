@@ -1,0 +1,26 @@
+{
+  "name": "electropi-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack task management MVP (Express + Next.js + MongoDB)",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspace=backend && npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "test": "npm run test --workspace=backend",
+    "lint": "npm run lint --workspace=backend && npm run lint --workspace=frontend",
+    "seed": "npm run seed --workspace=backend"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "typescript": "5.8.3"
+  }
+}
